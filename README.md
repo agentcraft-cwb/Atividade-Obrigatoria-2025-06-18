@@ -11,6 +11,7 @@ Testamos dois “approaches” diferentes. Começamos com um agente relativament
 O segundo agente trabalha de forma iterativa com o usuário, como um chat e funciona com um fluxo mais elaborado o que lhe permite agir com maior flexibilidade e personalização. Os inputs do usuário passam sempre por um ‘node’ que identifica o estado de execução da tarefa e decide, às vezes de forma programática, às vezes por meio de uma LLM, qual a próxima ação a ser tomada.
 
 ### Agente 1. LangGraphAgent: solução básica
+#### arquivo: ./scripts/LangGraphAgent.ipynb e .py
 Como apresentado na figura a seguir, são apenas dois elementos. O orquestrador (main_assistant) recebe o input e decide como e quando usará as ferramentas. O executor de tarefas (tool_node) realiza a tarefa com a ferramenta que o orquestrador lhe pede e com os argumentos fornecidos pelo mesmo. 
 Foram necessárias apenas três ferramentas:
 1. Encontrar o nome do arquivo .zip na pasta do projeto (biblioteca os)
@@ -20,6 +21,7 @@ Foram necessárias apenas três ferramentas:
 ![image](https://github.com/user-attachments/assets/0f5429f1-b844-4b37-8155-beeadecbf15a)
 
 ### Agente 2. GraphRAGAgent: RAG GraphDB
+#### arquivo: ./scripts/GraphRAGAgent.py
 Como pode ser visto na figura a seguir, o agente é bastante mais complexo porém prevê maior grau de flexibilidade, personalização e melhoria de performance. Composto de um componente central que coordena a execução da tarefa (flowmanager) conforme interações com o usuário (human_input) e com demais assistentes. 
 A primeira etapa do fluxo total é identificar o nome do arquivo zip (verify_file) e busca-lo na pasta google drive do i2a2 para o download e a extração dos arquivos csv (dload_n_xtract). Fetia a extação o agente passa automaticamente para a etapa de ingestão dos dados em uma base Neo4j (data_ingestion) quando cria também índices de busca textuais, por datas e também um incide semântico (vector embeddings) para os campos de produtos e serviços das notas fiscais.
 Executadas estas tarefas de preparação o agente entra no ciclo de inquisição aos dados, interagindo com o usuário que realiza suas perguntas. Identificada uma pergunta ao usuário (get_inquiry) o agente passa a pergunta por uma verificação de pertinência (guardrails) de onde pode ou recusar a resposta ou passar para a geração do código CYPHER que faz o query na base de dados.
@@ -29,6 +31,7 @@ Com a resposta final voltamos à interação humana para a realização de mais 
 ![image](https://github.com/user-attachments/assets/47e8da3b-0a3e-4032-bdfb-8472fb750f79)
 
 ## Perguntas e respostas
+#### Arquivo testes: ./scripts/Perguntas_e_Respostas.ipynb
 Elaboramos 5 perguntas para as quais as respostas poderiam ser encontradas na base de dados com o objetivo de testar a capacidade de cada modelo encontrar as respostas corretas. Quadro abaixo podemos verificar os resultados:
 
 ```
