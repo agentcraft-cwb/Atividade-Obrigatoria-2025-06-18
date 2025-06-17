@@ -1,0 +1,10 @@
+Building a Multi-Agent AI System with LangGraph and LangSmith
+https://levelup.gitconnected.com/building-a-multi-agent-ai-system-with-langgraph-and-langsmith-6cb70487cd81
+
+Chat with a CSV - LangChain CSV Agents Tutorial For Beginners (OpenAI API)
+https://youtu.be/VVdzQs-FeHE
+Chat With a CSV Using LangChain
+https://ryanandmattdatascience.com/chat-with-a-csv-using-langchain/
+
+LangGraph(python)
+https://www.youtube.com/watch?v=5h-JBkySK34&list=PLfaIDFEXuae16n2TWUkKq5PgJ0w6Pkwtg
