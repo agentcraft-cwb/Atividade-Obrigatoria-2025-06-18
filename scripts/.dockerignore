@@ -1,0 +1,14 @@
+README.md
+*.pyc
+*.pyo
+*.pyd
+*.sh
+*.ipynb
+__pycache__
+.pytest_cache
+.idea
+.venv
+archive
+*.json
+.env
+
